@@ -27,6 +27,30 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico", // Pastikan file ini ada di folder public
   },
+  // --- BAGIAN PENAMBAHAN GAMBAR UNTUK SOSIAL MEDIA ---
+  openGraph: {
+    title: "Kampus NLP | Indonesia Training Center",
+    description: "Pusat pelatihan NLP & Hipnoterapi Internasional di Indonesia. Transformasi diri, leadership, dan produktivitas bersama Coach Frans.",
+    url: "https://kampusnlp.id", // Ganti dengan domain asli Anda jika sudah ada
+    siteName: "Kampus NLP",
+    images: [
+      {
+        url: "/images/opengraph-image.png", // Pastikan file ini ada di folder public
+        width: 1200,
+        height: 630,
+        alt: "Kampus NLP Indonesia Training Center Banner",
+      },
+    ],
+    locale: "id_ID",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kampus NLP | Indonesia Training Center",
+    description: "Pusat pelatihan NLP & Hipnoterapi Internasional di Indonesia. Transformasi diri, leadership, dan produktivitas bersama Coach Frans.",
+    images: ["/images/opengraph-image.png"],
+  },
+  // --------------------------------------------------
 };
 
 export default function RootLayout({
@@ -36,7 +60,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id" className={`${inter.variable} ${lexend.variable} scroll-smooth`}>
-      <body className="font-sans bg-white text-[#900 antialiased">
+      <body className="font-sans bg-white text-[#900] antialiased">
         {/* Navbar akan selalu ada di bagian atas setiap halaman */}
         <Navbar />
         
