@@ -9,20 +9,37 @@ export default function Footer() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
 
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
+const handleSubscribe = async (e: React.FormEvent) => {
+  e.preventDefault();
+  if (!email) return;
 
-    setStatus("loading");
+  setStatus("loading");
 
-    // Simulasi proses API (Bisa diganti dengan integrasi Mailchimp/Database nanti)
-    setTimeout(() => {
+  try {
+    const response = await fetch("/api/subscribe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    if (response.ok) {
       setStatus("success");
       setEmail("");
       // Reset status setelah 3 detik
       setTimeout(() => setStatus("idle"), 3000);
-    }, 1500);
-  };
+    } else {
+      const errorData = await response.json();
+      alert(errorData.message || "Gagal berlangganan");
+      setStatus("idle");
+    }
+  } catch (error) {
+    console.error("Error subscribing:", error);
+    alert("Terjadi kesalahan koneksi");
+    setStatus("idle");
+  }
+};
 
   return (
     <footer className="bg-navy-900 text-white pt-20 pb-10">
