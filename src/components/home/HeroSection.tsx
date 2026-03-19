@@ -74,19 +74,20 @@ export default function HeroSection() {
           <div className="absolute bottom-10 left-10 w-48 h-48 bg-navy-800 rounded-2xl rotate-12 z-0 border border-white/10 hidden md:block " />
 
           {/* Frame Gambar Utama */}
-          <div className="relative z-10 w-full max-w-[500px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
-            <Image
-              src="/images/Coach Frans.png"
-              alt="Professional Coach NLP"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
+          <div className="relative z-10 w-full max-w-125 aspect-4/5 rounded-3xl overflow-hidden shadow-2xl bg-navy-800">
+          <Image
+            src="/images/coach-frans1.png"
+            alt="Professional Coach NLP"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover"
+            priority // Memberitahu Next.js untuk memuat gambar ini lebih dulu
+          />
+        </div>
         </motion.div>
       </div>
 
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-logo/5 blur-[120px] rounded-full -z-10" />
+      <div className="absolute top-0 right-0 w-125 h-125 bg-accent-logo/5 blur-[120px] rounded-full -z-10" />
     </section>
   );
 }

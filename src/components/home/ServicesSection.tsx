@@ -35,8 +35,8 @@ export default function ServicesSection() {
   const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
 
   return (
-    <section className="py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-6">
+    <section id="programs" className="py-24 bg-white overflow-hidden">
+      <div  className="container mx-auto px-6">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">

@@ -58,12 +58,12 @@ export default function FaqSection() {
               whileInView={{ opacity: 1, y: 0 }}
               className="font-display text-4xl md:text-5xl font-extrabold text-[#900] leading-tight mb-6"
             >
-              Pertanyaan yang <span className="text-[#logo]">Sering Diajukan</span>
+              Pertanyaan yang <span className="text-accent-logo">Sering Diajukan</span>
             </motion.h2>
             <p className="text-gray-500 leading-relaxed mb-8">
               Belum menemukan jawaban yang Anda cari? Kami siap membantu melalui konsultasi gratis.
             </p>
-            <button className="bg-[logo] text-white px-8 py-4 rounded-2xl font-bold hover:bg-accent-logo transition-all shadow-lg hover:-translate-y-1 w-full sm:w-auto">
+            <button className="bg-navy-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-accent-logo transition-all shadow-lg hover:-translate-y-1 w-full sm:w-auto">
               WhatsApp Kami
             </button>
           </div>
@@ -90,12 +90,12 @@ export default function FaqSection() {
                         className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
                       >
                         <span className={`font-bold text-lg md:text-xl pr-4 transition-colors ${
-                          isOpen ? "text-accent-logo" : "text-[#900]"
+                          isOpen ? "text-accent-logo" : "text-navy-900"
                         }`}>
                           {faq.question}
                         </span>
                         <div className={`shrink-0 p-2 rounded-full transition-transform duration-300 ${
-                          isOpen ? "bg-accent-logo text-white rotate-180" : "bg-gray-100 text-900"
+                          isOpen ? "bg-accent-logo text-white rotate-180" : "bg-gray-800 text-900"
                         }`}>
                           {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                         </div>
@@ -130,7 +130,7 @@ export default function FaqSection() {
               >
                 <button 
                   onClick={showMore}
-                  className="inline-flex items-center gap-2 text-900 font-bold py-4 px-10 rounded-full border-2 border-900/10 hover:bg-navy-900 hover:text-white transition-all duration-300 group"
+                  className="bg-accent-logo inline-flex items-center gap-2 text-900 font-bold py-4 px-10 rounded-full border-2 border-900/10 hover:bg-navy-900 hover:text-white transition-all duration-300 group"
                 >
                   Lihat Pertanyaan Lainnya
                   <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />

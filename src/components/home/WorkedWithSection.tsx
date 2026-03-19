@@ -11,7 +11,6 @@ export default function WorkedWithSection() {
 
   return (
     <section className="py-10 bg-white overflow-hidden border-y border-gray-100">
-      {/* Header */}
       <div className="container mx-auto px-6 mb-8 text-center">
         <div className="max-w-2xl mx-auto">
           <p className="text-[#E72F31] font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs">
@@ -24,7 +23,6 @@ export default function WorkedWithSection() {
         </div>
       </div>
 
-      {/* Carousel wrapper */}
       <div
         className="relative w-full overflow-hidden py-6 group"
         onMouseEnter={() => {
@@ -35,72 +33,35 @@ export default function WorkedWithSection() {
         }}
       >
         {/* Fade masks */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 z-10"
-          style={{ background: "linear-gradient(to right, white 0%, rgba(255,255,255,0.8) 60%, transparent 100%)" }} />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 z-10"
-          style={{ background: "linear-gradient(to left, white 0%, rgba(255,255,255,0.8) 60%, transparent 100%)" }} />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 z-10 bg-gradient-to-r from-white via-white/80 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 z-10 bg-gradient-to-l from-white via-white/80 to-transparent" />
 
-        {/* Scrolling track */}
         <div
           ref={trackRef}
+          className="flex items-center gap-[40px] w-max"
           style={{
-            display: "flex",
-            gap: "40px",
-            width: "max-content",
-            alignItems: "center",
             animation: "carousel-scroll 35s linear infinite",
           }}
         >
           {repeated.map((logo, index) => (
             <div
               key={index}
-              style={{
-                flexShrink: 0,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                minWidth: "140px",
-                transition: "transform 0.25s cubic-bezier(0.34,1.56,0.64,1)",
-                cursor: "pointer",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.transform = "scale(1.25)";
-                (e.currentTarget as HTMLElement).style.zIndex = "20";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.transform = "scale(1)";
-                (e.currentTarget as HTMLElement).style.zIndex = "1";
-              }}
+              className="flex-shrink-0 flex items-center justify-center min-w-[140px] transition-transform duration-300 hover:scale-110 cursor-pointer"
             >
               <Image
                 src={`/images/${logo}`}
                 alt={`Partner ${(index % logos.length) + 1}`}
-                width={180}
-                height={90}
-                quality={100}
-                style={{
-                  objectFit: "contain",
-                  height: "56px",
-                  width: "auto",
-                  filter: "grayscale(100%)",
-                  opacity: 0.5,
-                  transition: "filter 0.3s ease, opacity 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.filter = "grayscale(0%)";
-                  (e.currentTarget as HTMLImageElement).style.opacity = "1";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.filter = "grayscale(100%)";
-                  (e.currentTarget as HTMLImageElement).style.opacity = "0.5";
-                }}
+                width={140} // Sesuaikan dengan minWidth container
+                height={70}
+                className="object-contain h-14 w-auto grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                // Jangan tambahkan quality di sini agar tidak error
               />
             </div>
           ))}
         </div>
       </div>
 
-      <style>{`
+      <style jsx>{`
         @keyframes carousel-scroll {
           0%   { transform: translateX(0); }
           100% { transform: translateX(calc(-100% / 3)); }

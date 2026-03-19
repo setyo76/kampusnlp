@@ -34,7 +34,7 @@ const testimonials = [
 export default function TestimonialSection() {
   return (
     <section className="py-24 bg-[#F8F9FA] overflow-hidden">
-      <div className="container mx-auto px-6">
+      <div id="testimonials" className="container mx-auto px-6">
         
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
@@ -50,26 +50,22 @@ export default function TestimonialSection() {
           
 <div className="hidden md:block text-right">
   {/* Stacked Avatars */}
-  <div className="flex justify-end -space-x-4 mb-3">
-    {[1, 2, 3, 4].map((i) => (
-      <div 
-        key={i} 
-        className="w-12 h-12 rounded-full border-4 border-white bg-gray-200 relative overflow-hidden shadow-sm"
-      >
-        <Image
-          src={`/images/alumni-${i}.png`} // Memanggil alumni-1.png sampai alumni-4.png
-          alt="Alumni Kampus NLP"
-          fill
-          className="object-cover"
-          sizes="48px"
-        />
-        {/* Fallback jika gambar loading/error */}
-        <div className="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-navy-900 -z-10">
-          ITC
-        </div>
+      <div className="flex justify-end -space-x-4 mb-3">
+        {[1, 2, 3, 4].map((i) => (
+          <div 
+            key={i} 
+            className="w-12 h-12 rounded-full border-4 border-white bg-gray-100 relative overflow-hidden shadow-sm"
+          >
+            <Image
+              src={`/images/alumni-${i}.png`}
+              alt="Alumni Kampus NLP"
+              fill
+              sizes="48px" // Karena ukurannya tetap kecil
+              className="object-cover"
+            />
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
   <p className="text-xs text-gray-400 font-medium tracking-wide">
     Bergabung dengan <span className="text-[#0F0D2E] font-bold">12,000+</span> lainnya
   </p>
