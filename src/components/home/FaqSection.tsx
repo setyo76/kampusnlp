@@ -63,9 +63,16 @@ export default function FaqSection() {
             <p className="text-gray-500 leading-relaxed mb-8">
               Belum menemukan jawaban yang Anda cari? Kami siap membantu melalui konsultasi gratis.
             </p>
-            <button className="bg-navy-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-accent-logo transition-all shadow-lg hover:-translate-y-1 w-full sm:w-auto">
-              WhatsApp Kami
-            </button>
+              <a 
+                href="https://wa.link/r7ddp7" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block w-full sm:w-auto"
+              >
+                <button className="bg-navy-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-accent-logo transition-all shadow-lg hover:-translate-y-1 w-full sm:w-auto">
+                  WhatsApp Kami
+                </button>
+              </a>
           </div>
 
           {/* Accordion List */}
