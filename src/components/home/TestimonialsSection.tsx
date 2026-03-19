@@ -39,12 +39,12 @@ export default function TestimonialSection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
-            <p className="text-[#E72F31] font-bold uppercase tracking-[0.3em] text-[10px] mb-4">
+            <p className="text-accent-logo font-bold uppercase tracking-[0.3em] text-[10px] mb-4">
               Testimoni Alumni
             </p>
-            <h2 className="font-display text-4xl md:text-5xl font-extrabold text-[#0F0D2E] leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl font-extrabold text-navy-900 leading-tight">
               Cerita Sukses dari <br />
-              <span className="text-[#E72F31]">Mereka yang Bertransformasi</span>
+              <span className="text-accent-logo">Mereka yang Bertransformasi</span>
             </h2>
           </div>
           
@@ -67,7 +67,7 @@ export default function TestimonialSection() {
         ))}
       </div>
   <p className="text-xs text-gray-400 font-medium tracking-wide">
-    Bergabung dengan <span className="text-[#0F0D2E] font-bold">12,000+</span> lainnya
+    Bergabung dengan <span className="text-navy-900 font-bold">12,000+</span> lainnya
   </p>
 </div>
         </div>
@@ -81,17 +81,17 @@ export default function TestimonialSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col group hover:shadow-xl transition-all duration-500"
+              className="bg-white p-8 rounded-4xl shadow-sm border border-gray-100 flex flex-col group hover:shadow-xl transition-all duration-500"
             >
               <Quote className="w-10 h-10 text-[#A39674] opacity-20 mb-6" />
               
               {/* Teks dengan entitas kutipan agar tidak error */}
-              <p className="text-gray-600 leading-relaxed italic mb-8 flex-grow text-sm">
+              <p className="text-gray-600 leading-relaxed italic mb-8 grow text-sm">
                 &quot;{item.content}&quot;
               </p>
 
               <div className="flex items-center gap-4 pt-6 border-t border-gray-50">
-                <div className="w-12 h-12 rounded-full bg-[#0F0D2E] relative overflow-hidden flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-navy-900 relative overflow-hidden shrink-0">
                   {/* PENGGUNAAN IMAGE YANG BENAR */}
                   <Image 
                     src={item.image}
@@ -106,7 +106,7 @@ export default function TestimonialSection() {
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#0F0D2E] text-sm leading-none mb-1">{item.name}</h4>
+                  <h4 className="font-bold text-navy-900 text-sm leading-none mb-1">{item.name}</h4>
                   <p className="text-[9px] text-[#A39674] font-bold uppercase tracking-widest">{item.role}</p>
                 </div>
               </div>

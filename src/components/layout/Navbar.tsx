@@ -15,7 +15,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed w-full z-[100] bg-navy-900/80 backdrop-blur-md border-b border-white/10 text-white">
+    <nav className="fixed w-full z-100 bg-navy-900/80 backdrop-blur-md border-b border-white/10 text-white">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         
         {/* LOGO ITC dengan Animasi Zoom & Shadow */}
@@ -26,7 +26,7 @@ export default function Navbar() {
               filter: "drop-shadow(0 0 15px rgba(255, 255, 255, 0.6))" 
             }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            className="relative w-[50px] h-[50px]"
+            className="relative w-12.5 h-12.5"
           >
             <Image 
               src="/images/logo.png" 
@@ -37,25 +37,25 @@ export default function Navbar() {
             />
           </motion.div>
           <span className="font-display font-bold text-lg leading-tight hidden lg:block uppercase tracking-tight">
-            Indonesia Training <span className="text-[#E72F31]">Center</span>
+            Indonesia Training <span className="text-accent-logo">Center</span>
           </span>
         </Link>
 
         {/* MENU - Menggunakan ID yang sesuai dengan section di Page Anda */}
         <div className="hidden md:flex items-center gap-8 font-bold text-m text-gray-300">
-          <Link href="/" className="hover:text-[#E72F31] transition-colors">Home</Link>
+          <Link href="/" className="hover:text-accent-logo transition-colors">Home</Link>
           
           {/* Pastikan di file page.tsx, section terkait memiliki id="programs" */}
-          <a href="#programs" onClick={(e) => scrollToSection(e, 'programs')} className="hover:text-[#E72F31] transition-colors cursor-pointer">
+          <a href="#programs" onClick={(e) => scrollToSection(e, 'programs')} className="hover:text-accent-logo transition-colors cursor-pointer">
             Programs
           </a>
           
-          <a href="#testimonials" onClick={(e) => scrollToSection(e, 'testimonials')} className="hover:text-[#E72F31] transition-colors cursor-pointer">
+          <a href="#testimonials" onClick={(e) => scrollToSection(e, 'testimonials')} className="hover:text-accent-logo transition-colors cursor-pointer">
             Testimonials
           </a>
 
           {/* Menu Blog untuk melihat semua artikel */}
-          <Link href="/blog" className="hover:text-[#E72F31] transition-colors">Blog</Link>
+          <Link href="/blog" className="hover:text-accent-logo transition-colors">Blog</Link>
         </div>
 
         {/* CTA Hubungi Kami - Diarahkan ke Footer (Contact Section) */}
@@ -64,7 +64,7 @@ export default function Navbar() {
           onClick={(e) => scrollToSection(e, 'footer')}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-[#E72F31] px-6 py-2.5 rounded-full font-bold text-sm shadow-lg shadow-[#E72F31]/20 hover:bg-[#c4282a] transition-all cursor-pointer"
+          className="bg-accent-logo px-6 py-2.5 rounded-full font-bold text-sm shadow-lg shadow-accent-logo/20 hover:bg-[#c4282a] transition-all cursor-pointer"
         >
           Hubungi Kami
         </motion.a>

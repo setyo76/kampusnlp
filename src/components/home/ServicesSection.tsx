@@ -43,16 +43,16 @@ export default function ServicesSection() {
           <motion.p 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-[#E72F31] font-bold uppercase tracking-[0.3em] text-[10px] md:text-xs mb-4"
+            className="text-accent-logo font-bold uppercase tracking-[0.3em] text-[10px] md:text-xs mb-4"
           >
             Layanan Unggulan
           </motion.p>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="font-display text-4xl md:text-5xl font-extrabold text-[#0F0D2E] leading-tight"
+            className="font-display text-4xl md:text-5xl font-extrabold text-navy-900 leading-tight"
           >
-            Investasi Terbaik untuk <span className="text-[#E72F31]">Pertumbuhan Anda</span>
+            Investasi Terbaik untuk <span className="text-accent-logo">Pertumbuhan Anda</span>
           </motion.h2>
           <div className="h-1.5 w-24 bg-[#A39674]/20 mx-auto mt-8 rounded-full" />
         </div>
@@ -74,11 +74,11 @@ export default function ServicesSection() {
                 {service.badge}
               </div>
 
-              <div className="w-16 h-16 rounded-2xl bg-[#0F0D2E] text-white flex items-center justify-center mb-10 shadow-lg shadow-navy-900/20 group-hover:scale-110 group-hover:bg-[#E72F31] transition-all duration-500">
+              <div className="w-16 h-16 rounded-2xl bg-navy-900 text-white flex items-center justify-center mb-10 shadow-lg shadow-navy-900/20 group-hover:scale-110 group-hover:bg-accent-logo transition-all duration-500">
                 {service.icon}
               </div>
 
-              <h3 className="font-display text-2xl font-black text-[#0F0D2E] mb-5 leading-snug">
+              <h3 className="font-display text-2xl font-black text-navy-900 mb-5 leading-snug">
                 {service.title}
               </h3>
 
@@ -86,9 +86,9 @@ export default function ServicesSection() {
                 "{service.shortDesc}"
               </p>
 
-              <div className="flex items-center gap-3 text-[#0F0D2E] font-bold text-sm group-hover:text-[#E72F31] transition-colors">
+              <div className="flex items-center gap-3 text-navy-900 font-bold text-sm group-hover:text-accent-logo transition-colors">
                 <span>Lihat Detail</span>
-                <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#E72F31] group-hover:text-white transition-all duration-300">
+                <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-accent-logo group-hover:text-white transition-all duration-300">
                   <ArrowRight className="w-4 h-4" />
                 </div>
               </div>
@@ -106,7 +106,7 @@ export default function ServicesSection() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setSelectedService(null)}
-                className="fixed inset-0 bg-[#0F0D2E]/80 backdrop-blur-md z-[99]"
+                className="fixed inset-0 bg-navy-900/80 backdrop-blur-md z-99"
               />
 
               {/* Modal Card */}
@@ -114,21 +114,21 @@ export default function ServicesSection() {
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                className="fixed inset-x-4 top-[10%] md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:w-full md:max-w-2xl bg-white z-[100] rounded-[3rem] overflow-hidden shadow-2xl"
+                className="fixed inset-x-4 top-[10%] md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:w-full md:max-w-2xl bg-white z-100 rounded-[3rem] overflow-hidden shadow-2xl"
               >
                 <button 
                   onClick={() => setSelectedService(null)}
-                  className="absolute top-8 right-8 p-2 rounded-full bg-gray-100 hover:bg-[#E72F31] hover:text-white transition-all"
+                  className="absolute top-8 right-8 p-2 rounded-full bg-gray-100 hover:bg-accent-logo hover:text-white transition-all"
                 >
                   <X className="w-5 h-5" />
                 </button>
 
                 <div className="p-8 md:p-12">
-                  <div className="w-16 h-16 rounded-2xl bg-[#E72F31] text-white flex items-center justify-center mb-8">
+                  <div className="w-16 h-16 rounded-2xl bg-accent-logo text-white flex items-center justify-center mb-8">
                     {selectedService.icon}
                   </div>
                   
-                  <h3 className="font-display text-3xl font-black text-[#0F0D2E] mb-4">
+                  <h3 className="font-display text-3xl font-black text-navy-900 mb-4">
                     {selectedService.title}
                   </h3>
                   
@@ -140,12 +140,12 @@ export default function ServicesSection() {
                     {selectedService.features.map((feat, i) => (
                       <div key={i} className="flex items-center gap-3">
                         <CheckCircle2 className="w-5 h-5 text-[#A39674]" />
-                        <span className="font-semibold text-[#0F0D2E] text-sm">{feat}</span>
+                        <span className="font-semibold text-navy-900 text-sm">{feat}</span>
                       </div>
                     ))}
                   </div>
 
-                  <button className="w-full bg-[#0F0D2E] text-white py-5 rounded-2xl font-bold hover:bg-[#E72F31] transition-all shadow-xl">
+                  <button className="w-full bg-navy-900 text-white py-5 rounded-2xl font-bold hover:bg-accent-logo transition-all shadow-xl">
                     Konsultasi Program Ini
                   </button>
                 </div>

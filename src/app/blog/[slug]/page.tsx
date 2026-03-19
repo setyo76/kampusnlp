@@ -25,7 +25,7 @@ const ptComponents = {
     image: ({ value }: any) => {
       if (!value?.asset?._ref) return null;
       return (
-        <div className="relative w-full h-[300px] md:h-[500px] my-10 rounded-2xl overflow-hidden">
+        <div className="relative w-full h-75 md:h-125 my-10 rounded-2xl overflow-hidden">
           <Image
             src={urlFor(value).url()}
             alt={value.alt || "Gambar Konten"}
@@ -42,7 +42,7 @@ const ptComponents = {
     h3: ({ children }: any) => <h3 className="text-xl font-bold mt-6 mb-3 text-navy-900">{children}</h3>,
     normal: ({ children }: any) => <p className="mb-6 text-gray-600 leading-relaxed">{children}</p>,
     blockquote: ({ children }: any) => (
-      <blockquote className="border-l-4 border-[#E72F31] pl-4 italic my-8 text-gray-700 bg-gray-50 py-2">
+      <blockquote className="border-l-4 border-accent-logo pl-4 italic my-8 text-gray-700 bg-gray-50 py-2">
         {children}
       </blockquote>
     ),
@@ -66,7 +66,7 @@ export default async function PostPage({
     return (
       <div className="py-40 text-center">
         <h2 className="text-2xl font-bold mb-4 text-navy-900">Artikel tidak ditemukan</h2>
-        <Link href="/blog" className="text-[#E72F31] hover:underline flex items-center justify-center gap-2 font-bold">
+        <Link href="/blog" className="text-accent-logo hover:underline flex items-center justify-center gap-2 font-bold">
           <ArrowLeft className="w-4 h-4" /> Kembali ke Blog
         </Link>
       </div>
@@ -76,11 +76,11 @@ export default async function PostPage({
   return (
     <article className="min-h-screen bg-gray-50 pb-20">
       {/* Hero Header */}
-      <div className="bg-[#0F0D2E] text-white pt-32 pb-20 px-6">
+      <div className="bg-navy-900 text-white pt-32 pb-20 px-6">
         <div className="container mx-auto max-w-4xl">
           <Link 
             href="/blog" 
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-[#E72F31] mb-8 transition-colors group font-medium"
+            className="inline-flex items-center gap-2 text-gray-400 hover:text-accent-logo mb-8 transition-colors group font-medium"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> 
             Kembali ke Blog
@@ -92,11 +92,11 @@ export default async function PostPage({
           
           <div className="flex flex-wrap items-center gap-6 text-sm text-gray-300">
             <div className="flex items-center gap-2">
-              <User className="w-4 h-4 text-[#E72F31]" /> 
+              <User className="w-4 h-4 text-accent-logo" /> 
               {post.authorName || "Admin ITC"}
             </div>
             <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-[#E72F31]" /> 
+              <Calendar className="w-4 h-4 text-accent-logo" /> 
               {post.publishedAt 
                 ? new Date(post.publishedAt).toLocaleDateString('id-ID', { dateStyle: 'long' })
                 : "Baru saja"}
@@ -107,7 +107,7 @@ export default async function PostPage({
 
       <div className="container mx-auto max-w-4xl px-6 -mt-10">
         {/* Main Image */}
-        <div className="relative h-[300px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl mb-12 bg-gray-200">
+        <div className="relative h-75 md:h-125 rounded-3xl overflow-hidden shadow-2xl mb-12 bg-gray-200">
           <Image 
             src={urlFor(post.mainImage).url()} 
             alt={post.title} 
@@ -123,7 +123,7 @@ export default async function PostPage({
           prose-headings:font-display prose-headings:text-[#0F0D2E]
           prose-p:text-gray-600 prose-strong:text-[#0F0D2E]
           prose-a:text-[#E72F31] hover:prose-a:text-[#c4282a] transition-colors
-          prose-img:rounded-2xl shadow-xl shadow-gray-200/50">
+          prose-img:rounded-2xl shadow-gray-200/50">
           
           {/* Menggunakan value={post.body} dengan components yang sudah kita buat */}
           {post.body ? (
