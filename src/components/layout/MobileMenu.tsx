@@ -29,7 +29,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-navy-900/60 backdrop-blur-sm z-[9998]"
+            className="fixed inset-0 bg-navy-900/60 backdrop-blur-sm z-9998"
           />
 
           {/* Menu Content */}
@@ -38,7 +38,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed right-0 top-0 bottom-0 w-[300px] bg-white z-[9999] shadow-2xl flex flex-col"
+            className="fixed right-0 top-0 bottom-0 w-75 bg-white z-9999 shadow-2xl flex flex-col"
           >
             {/* Header Menu */}
             <div className="p-6 flex justify-between items-center border-b border-gray-100">

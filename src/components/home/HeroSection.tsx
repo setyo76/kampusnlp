@@ -50,7 +50,34 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-navy-900">
-      <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      
+      {/* --- LAYER BACKGROUND BARU --- */}
+      {/* 1. Efek Glow / Aura (Hipnoterapi) */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-accent-logo/10 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-600/10 rounded-full blur-[100px]" />
+      </div>
+
+      {/* 2. Neuro-Grid Pattern (Simbol NLP) */}
+      <div 
+        className="absolute inset-0 opacity-[0.08] pointer-events-none"
+        style={{ 
+          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+          backgroundSize: '40px 40px' 
+        }}
+      />
+
+      {/* 3. Wave Graphic (Simbol Transformasi) */}
+      <svg className="absolute bottom-0 left-0 w-full h-auto opacity-20 pointer-events-none" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path 
+          fill="#A39674" 
+          fillOpacity="0.5" 
+          d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,144C672,139,768,181,864,181.3C960,181,1056,139,1152,122.7C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+        ></path>
+      </svg>
+      {/* --- END LAYER BACKGROUND --- */}
+
+      <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
         
         {/* Kolom Kiri: Teks */}
         <motion.div 
@@ -90,16 +117,43 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           className="relative flex justify-center items-center"
         >
-          <div className="relative z-10 w-full max-w-125 aspect-4/5 rounded-3xl overflow-hidden shadow-2xl bg-navy-800 border border-white/5">
-            <Image src="/images/coach-frans1.png" alt="Coach Frans" fill className="object-cover" priority />
+          {/* Efek Cahaya di belakang foto */}
+          <div className="absolute inset-0 bg-accent-logo/20 rounded-full blur-[100px] animate-pulse scale-75 pointer-events-none" />
+          
+          <div className="relative z-10 w-full max-w-125 aspect-4/5 rounded-3xl overflow-hidden shadow-2xl bg-navy-800 border border-white/5 group">
+            <Image 
+              src="/images/coach-frans1.png" 
+              alt="Coach Frans" 
+              fill 
+              className="object-cover transition-transform duration-700 group-hover:scale-105" 
+              priority 
+            />
           </div>
+
+          {/* --- KOTAK CERTIFIED (Floating Badge) --- */}
+          <motion.div 
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -bottom-6 -right-4 md:right-0 bg-white p-4 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] z-20 hidden sm:block border border-gray-100"
+          >
+            <div className="flex items-center gap-3">
+              <div className="bg-emerald-100 p-2 rounded-lg">
+                <ShieldCheck className="text-emerald-600" size={24} />
+              </div>
+              <div>
+                <p className="text-navy-900 font-black text-sm leading-none mb-1">Certified</p>
+                <p className="text-gray-500 text-[10px] uppercase tracking-wider font-bold">International Trainer</p>
+              </div>
+            </div>
+          </motion.div>
+          {/* --- END KOTAK CERTIFIED --- */}
         </motion.div>
       </div>
 
       {/* POPUP MATERI PELATIHAN */}
       <AnimatePresence>
         {isModalOpen && (
-          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-8">
+          <div className="fixed inset-0 z-9999 flex items-center justify-center p-4 md:p-8">
             <motion.div 
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               onClick={() => setIsModalOpen(false)}

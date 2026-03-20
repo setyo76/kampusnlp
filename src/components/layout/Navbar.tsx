@@ -22,7 +22,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed w-full z-[9997] bg-navy-900/80 backdrop-blur-md border-b border-white/10 text-white">
+      <nav className="fixed w-full z-9997 bg-navy-900/80 backdrop-blur-md border-b border-white/10 text-white">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           
           {/* LOGO ITC */}
@@ -49,7 +49,7 @@ export default function Navbar() {
           </Link>
 
           {/* DESKTOP MENU */}
-          <div className="hidden md:flex items-center gap-8 font-bold text-sm text-gray-300">
+          <div className="hidden md:flex items-center gap-8 font-bold text-m text-gray-300">
             <Link href="/" className="hover:text-accent-logo transition-colors">Home</Link>
             <a href="#programs" onClick={(e) => scrollToSection(e, 'programs')} className="hover:text-accent-logo transition-colors cursor-pointer text-sm">
               Programs
