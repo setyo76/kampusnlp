@@ -122,19 +122,21 @@ export default function Footer() {
               </p>
             </div>
 
+            {/* Phone - Secured Version */}
             <div className="flex items-start gap-4 group">
               <div className="p-3 bg-white/5 rounded-xl group-hover:bg-accent-logo transition-colors">
                 <Phone className="w-5 h-5 text-[#A39674] group-hover:text-white" />
               </div>
               <div>
-                <p className="text-xs text-gray-500 uppercase font-bold mb-1">Call Us</p>
+                <p className="text-xs text-gray-500 uppercase font-bold mb-1">Customer Service</p>
                 <a 
                   href={`https://wa.me/${siteConfig.contact.phoneFull}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-white font-bold hover:text-accent-logo transition-colors tracking-wider"
+                  className="text-white font-bold hover:text-accent-logo transition-all flex items-center gap-2 group/link"
                 >
-                  {siteConfig.contact.phone}
+                  Hubungi via WhatsApp
+                  <span className="inline-block transition-transform group-hover/link:translate-x-1">→</span>
                 </a>
               </div>
             </div>
