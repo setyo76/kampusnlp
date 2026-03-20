@@ -4,47 +4,46 @@ import { useState } from "react";
 import Link from "next/link";
 import { Mail, Phone, MapPin, Instagram, Youtube, Send, Facebook, CheckCircle2 } from "lucide-react";
 import { siteConfig } from "../../constants/site";
+import Button from "../../components/ui/Button"; // Import komponen Button custom
 
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
 
-const handleSubscribe = async (e: React.FormEvent) => {
-  e.preventDefault();
-  if (!email) return;
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
 
-  setStatus("loading");
+    setStatus("loading");
 
-  try {
-    const response = await fetch("/api/subscribe", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email }),
-    });
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
 
-    if (response.ok) {
-      setStatus("success");
-      setEmail("");
-      // Reset status setelah 3 detik
-      setTimeout(() => setStatus("idle"), 3000);
-    } else {
-      const errorData = await response.json();
-      alert(errorData.message || "Gagal berlangganan");
+      if (response.ok) {
+        setStatus("success");
+        setEmail("");
+        setTimeout(() => setStatus("idle"), 3000);
+      } else {
+        const errorData = await response.json();
+        alert(errorData.message || "Gagal berlangganan");
+        setStatus("idle");
+      }
+    } catch (error) {
+      console.error("Error subscribing:", error);
+      alert("Terjadi kesalahan koneksi");
       setStatus("idle");
     }
-  } catch (error) {
-    console.error("Error subscribing:", error);
-    alert("Terjadi kesalahan koneksi");
-    setStatus("idle");
-  }
-};
+  };
 
   return (
     <footer className="bg-navy-900 text-white pt-20 pb-10">
       <div className="container mx-auto px-6">
-        {/* Main Footer Content */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">
           
           {/* Column 1: Brand & Newsletter */}
@@ -76,10 +75,16 @@ const handleSubscribe = async (e: React.FormEvent) => {
                   </div>
                 )}
               </div>
-              <button 
+
+              {/* Update: Menggunakan Komponen Button Custom */}
+              <Button 
                 type="submit"
                 disabled={status !== "idle"}
-                className={`bg-accent-logo hover:bg-[#c42527] text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-2 transition-all shadow-lg active:scale-95 uppercase tracking-widest text-xs disabled:bg-gray-600 disabled:cursor-not-allowed`}
+                className={`
+                  bg-accent-logo text-white font-bold py-4 rounded-2xl 
+                  flex items-center justify-center gap-2 uppercase tracking-widest text-xs
+                  disabled:bg-gray-600 disabled:cursor-not-allowed disabled:hover:scale-100
+                `}
               >
                 {status === "loading" ? (
                   "Processing..."
@@ -88,7 +93,7 @@ const handleSubscribe = async (e: React.FormEvent) => {
                 ) : (
                   <>Stay Updated <Send className="w-4 h-4" /></>
                 )}
-              </button>
+              </Button>
             </form>
           </div>
 
@@ -107,8 +112,7 @@ const handleSubscribe = async (e: React.FormEvent) => {
           <div id="footer" className="lg:col-span-4 space-y-8 scroll-mt-24">
             <h4 className="font-bold text-lg mb-8 border-l-4 border-[#A39674] pl-4">Office Info</h4>
             
-            {/* Address */}
-            <div className="flex items-start gap-4 group">
+            <div className="flex items-start gap-4 group cursor-default">
               <div className="p-3 bg-white/5 rounded-xl group-hover:bg-accent-logo transition-colors">
                 <MapPin className="w-5 h-5 text-[#A39674] group-hover:text-white" />
               </div>
@@ -118,7 +122,6 @@ const handleSubscribe = async (e: React.FormEvent) => {
               </p>
             </div>
 
-            {/* Phone */}
             <div className="flex items-start gap-4 group">
               <div className="p-3 bg-white/5 rounded-xl group-hover:bg-accent-logo transition-colors">
                 <Phone className="w-5 h-5 text-[#A39674] group-hover:text-white" />
@@ -136,7 +139,6 @@ const handleSubscribe = async (e: React.FormEvent) => {
               </div>
             </div>
 
-            {/* Email */}
             <div className="flex items-start gap-4 group">
               <div className="p-3 bg-white/5 rounded-xl group-hover:bg-accent-logo transition-colors">
                 <Mail className="w-5 h-5 text-[#A39674] group-hover:text-white" />

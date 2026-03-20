@@ -59,7 +59,7 @@ export default function StatsSection() {
               
               <div className="text-4xl md:text-6xl font-black font-display mb-2 flex items-center justify-center">
                 <Counter value={stat.value} />
-                <span className="text-[#E72F31]">{stat.suffix}</span>
+                <span className="text-accent-logo">{stat.suffix}</span>
               </div>
               
               <p className="text-gray-400 uppercase tracking-[0.2em] text-[10px] md:text-xs font-bold">

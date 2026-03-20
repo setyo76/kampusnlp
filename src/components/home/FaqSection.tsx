@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus, ChevronDown } from "lucide-react";
+import Button from "../../components/ui/Button"; // Import komponen Button custom
 
 const faqs = [
   {
@@ -33,7 +34,7 @@ const faqs = [
 
 export default function FaqSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [displayLimit, setDisplayLimit] = useState(3); // Menampilkan 3 di awal
+  const [displayLimit, setDisplayLimit] = useState(3);
 
   const showMore = () => {
     setDisplayLimit(faqs.length);
@@ -49,30 +50,32 @@ export default function FaqSection() {
             <motion.p 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className="text-[logo] font-bold uppercase tracking-[0.3em] text-[10px] mb-4"
+              className="text-accent-logo font-bold uppercase tracking-[0.3em] text-[10px] mb-4"
             >
               FAQ
             </motion.p>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="font-display text-4xl md:text-5xl font-extrabold text-[#900] leading-tight mb-6"
+              className="font-display text-4xl md:text-5xl font-extrabold text-navy-900 leading-tight mb-6"
             >
               Pertanyaan yang <span className="text-accent-logo">Sering Diajukan</span>
             </motion.h2>
             <p className="text-gray-500 leading-relaxed mb-8">
               Belum menemukan jawaban yang Anda cari? Kami siap membantu melalui konsultasi gratis.
             </p>
-              <a 
-                href="https://wa.link/r7ddp7" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-block w-full sm:w-auto"
-              >
-                <button className="bg-navy-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-accent-logo transition-all shadow-lg hover:-translate-y-1 w-full sm:w-auto">
-                  WhatsApp Kami
-                </button>
-              </a>
+            
+            <a 
+              href="https://wa.link/r7ddp7" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block w-full sm:w-auto"
+            >
+              {/* Tombol WhatsApp Menggunakan Komponen Button */}
+              <Button className="bg-navy-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-accent-logo shadow-lg w-full sm:w-auto">
+                WhatsApp Kami
+              </Button>
+            </a>
           </div>
 
           {/* Accordion List */}
@@ -89,12 +92,13 @@ export default function FaqSection() {
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 0.3 }}
                       className={`rounded-3xl border transition-all duration-300 ${
-                        isOpen ? "bg-white border-[#A39674]/30 shadow-xl" : "bg-white/40 border-gray-200 hover:border-gray-300"
+                        isOpen ? "bg-white border-accent-logo/30 shadow-xl" : "bg-white/40 border-gray-200 hover:border-gray-300"
                       }`}
                     >
+                      {/* Untuk item accordion, kita tetap pakai button biasa agar tidak kena efek zoom scale global */}
                       <button
                         onClick={() => setActiveIndex(isOpen ? null : index)}
-                        className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
+                        className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none cursor-pointer"
                       >
                         <span className={`font-bold text-lg md:text-xl pr-4 transition-colors ${
                           isOpen ? "text-accent-logo" : "text-navy-900"
@@ -102,7 +106,7 @@ export default function FaqSection() {
                           {faq.question}
                         </span>
                         <div className={`shrink-0 p-2 rounded-full transition-transform duration-300 ${
-                          isOpen ? "bg-accent-logo text-white rotate-180" : "bg-gray-800 text-900"
+                          isOpen ? "bg-accent-logo text-white rotate-180" : "bg-gray-800 text-white"
                         }`}>
                           {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                         </div>
@@ -128,24 +132,23 @@ export default function FaqSection() {
               </AnimatePresence>
             </div>
 
-            {/* Load More Button */}
+            {/* Load More Button Menggunakan Komponen Button */}
             {displayLimit < faqs.length && (
               <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 className="mt-10 text-center"
               >
-                <button 
+                <Button 
                   onClick={showMore}
-                  className="bg-accent-logo inline-flex items-center gap-2 text-900 font-bold py-4 px-10 rounded-full border-2 border-900/10 hover:bg-navy-900 hover:text-white transition-all duration-300 group"
+                  className="bg-accent-logo inline-flex items-center gap-2 text-white font-bold py-4 px-10 rounded-full shadow-lg group"
                 >
                   Lihat Pertanyaan Lainnya
                   <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
-                </button>
+                </Button>
               </motion.div>
             )}
           </div>
-
         </div>
       </div>
     </section>

@@ -1,21 +1,30 @@
-"use client";
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, ButtonHTMLAttributes } from "react";
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  className?: string;
   variant?: "primary" | "outline";
 }
 
-export default function Button({ children, className, variant = "primary" }: ButtonProps) {
+export default function Button({ 
+  children, 
+  variant = "primary", 
+  className = "", 
+  ...props 
+}: ButtonProps) {
   return (
-    <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className={`px-6 py-3 rounded-full font-bold transition-all ${className}`}
+    <button 
+      {...props} 
+      className={`
+        cursor-pointer 
+        transition-all 
+        duration-300 
+        hover:scale-105 
+        active:scale-95 
+        hover:shadow-lg 
+        ${className}
+      `}
     >
       {children}
-    </motion.button>
+    </button>
   );
 }
