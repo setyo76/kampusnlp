@@ -12,8 +12,8 @@ interface MobileMenuProps {
 
 const navLinks = [
   { name: "Beranda", href: "/" },
-  { name: "Tentang Kami", href: "#about-section" },
   { name: "Program NLP", href: "#programs" },
+  { name: "Jadwal Training", href: "#schedules" },
   { name: "FAQ", href: "#faq" },
   { name: "Kontak", href: "#footer" },
 ];
