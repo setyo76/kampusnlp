@@ -51,10 +51,10 @@ export default function Navbar() {
           {/* DESKTOP MENU */}
           <div className="hidden md:flex items-center gap-8 font-bold text-m text-gray-300">
             <Link href="/" className="hover:text-accent-logo transition-colors">Home</Link>
-            <a href="#programs" onClick={(e) => scrollToSection(e, 'programs')} className="hover:text-accent-logo transition-colors cursor-pointer text-sm">
+            <a href="#programs" onClick={(e) => scrollToSection(e, 'programs')} className="hover:text-accent-logo transition-colors cursor-pointer text-m">
               Programs
             </a>
-            <a href="#testimonials" onClick={(e) => scrollToSection(e, 'testimonials')} className="hover:text-accent-logo transition-colors cursor-pointer text-sm">
+            <a href="#testimonials" onClick={(e) => scrollToSection(e, 'testimonials')} className="hover:text-accent-logo transition-colors cursor-pointer text-m">
               Testimonials
             </a>
             <Link href="/blog" className="hover:text-accent-logo transition-colors">Blog</Link>
