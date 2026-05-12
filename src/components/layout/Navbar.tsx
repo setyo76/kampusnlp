@@ -58,6 +58,14 @@ export default function Navbar() {
               Testimonials
             </a>
             <Link href="/blog" className="hover:text-accent-logo transition-colors">Blog</Link>
+            <Link 
+              href="/training" 
+              className="relative hover:text-accent-logo transition-colors group flex items-center gap-1"
+            >
+              Training Terdekat
+              {/* Titik indikator kecil agar orang tertarik klik */}
+              <span className="flex h-2 w-2 rounded-full bg-accent-light animate-pulse"></span>
+            </Link>
           </div>
 
           {/* DESKTOP CTA & MOBILE HAMBURGER */}

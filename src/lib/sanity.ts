@@ -2,10 +2,10 @@ import { createClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 
 export const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
-  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2024-03-19",
-  useCdn: true, // Set ke false jika ingin data paling fresh setiap saat (tapi lebih lambat)
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  apiVersion: '2021-10-21', 
+  useCdn: true,
 });
 
 const builder = imageUrlBuilder(client);

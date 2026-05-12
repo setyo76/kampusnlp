@@ -49,7 +49,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-navy-900">
+    <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden white">
       
       {/* --- LAYER BACKGROUND BARU --- */}
       {/* 1. Efek Glow / Aura (Hipnoterapi) */}
@@ -86,11 +86,11 @@ export default function HeroSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="z-10"
         >
-          <h1 className="font-display text-5xl md:text-7xl font-extrabold text-white leading-[1.1]">
+          <h1 className="font-display text-5xl md:text-7xl font-extrabold text-navy-900 leading-[1.1]">
             Transformational <br />
             <span className="text-accent-logo">Life Coach</span>
           </h1>
-          <p className="mt-6 text-gray-400 text-lg md:text-xl max-w-lg leading-relaxed font-sans">
+          <p className="mt-6 text-gray-600 text-lg md:text-xl max-w-lg leading-relaxed font-sans">
             Ubah pola pikir dan kuasai masa depan dengan pendekatan NLP yang praktis bersama Indonesia Training Center.
           </p>
           
@@ -104,7 +104,7 @@ export default function HeroSection() {
             <Button 
               onClick={() => setIsModalOpen(true)}
               variant="outline" 
-              className="border-white/20 text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all w-full sm:w-auto"
+              className="border-white/20 bg-neuro-gradient px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all w-full sm:w-auto"
             >
               Learn More
             </Button>
