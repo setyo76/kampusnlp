@@ -15,6 +15,7 @@ const navLinks = [
   { name: "Program NLP", href: "#programs" },
   { name: "Jadwal Training", href: "#schedules" },
   { name: "FAQ", href: "#faq" },
+  { name: "Training Terdekat", href: "/training" },
   { name: "Kontak", href: "#footer" },
 ];
 
