@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Lexend } from "next/font/google";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
+import { siteConfig } from "@/constants/site";
 
 // Font untuk teks isi (body)
 const inter = Inter({ 
@@ -19,6 +20,7 @@ const lexend = Lexend({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url), // https://kampusnlp.com — dipakai untuk resolve semua URL relatif (OG image, canonical, dst) di seluruh halaman, termasuk /training/[slug]
   title: {
     default: "Kampus NLP | Indonesia Training Center",
     template: "%s | Kampus NLP"
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kampus NLP | Indonesia Training Center",
     description: "Pusat pelatihan NLP & Hipnoterapi Internasional di Indonesia. Transformasi diri, leadership, dan produktivitas bersama Coach Frans.",
-    url: "https://kampusnlp.id", // Ganti dengan domain asli Anda jika sudah ada
+    url: siteConfig.url,
     siteName: "Kampus NLP",
     images: [
       {

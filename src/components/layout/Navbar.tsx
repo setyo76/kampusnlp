@@ -11,7 +11,10 @@ import Button from "../ui/Button"; // Import Button custom agar efeknya seragam
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement, MouseEvent>, id: string) => {
+  const scrollToSection = (
+    e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement, MouseEvent>,
+    id: string
+  ) => {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
@@ -73,7 +76,7 @@ export default function Navbar() {
             {/* CTA Desktop - Menggunakan komponen Button agar konsisten */}
             <div className="hidden md:block">
               <Button 
-                onClick={(e: any) => scrollToSection(e, 'footer')}
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) => scrollToSection(e, 'footer')}
                 className="bg-accent-logo px-6 py-2.5 rounded-full font-bold text-sm shadow-lg shadow-accent-logo/20"
               >
                 Hubungi Kami
